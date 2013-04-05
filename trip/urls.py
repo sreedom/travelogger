@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import url, include, patterns
-
+from django.contrib import admin
 __author__ = 'sreeraj'
 
 
@@ -12,8 +12,6 @@ urlpatterns = patterns('trip.views',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
-    url(r'^get-nearby-places/(?P<place_name>[a-zA-Z]*)/$', 'get_nearby_places'),
-    url(r'^api/log-events/$','create_log_entry'),
-    url(r'create-trip/','trip_planner')
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^api/user/', include('backend.users.urls')),
 )
